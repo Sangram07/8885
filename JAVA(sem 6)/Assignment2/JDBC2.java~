@@ -1,0 +1,67 @@
+import java.sql.*;
+import java.io.*;
+ 
+public class JDBC2{
+	static Statement st = null;
+	static Connection conn = null;
+	static ResultSet rs = null;
+	
+	public static void main(String[] args)throws IOException,SQLException,ClassNotFoundException{
+	
+	try{
+		int ch,n;
+		Class.forName("org.postgresql.Driver");
+		conn = DriverManager.getConnection("jdbc:postgresql://192.168.16.1/ty8803","ty8803","");
+		if(conn == null)
+			System.out.println("Connection Failed");
+		else
+			System.out.println("Connection Sucessfull!!");
+
+		st = conn.createStatement();
+	
+		/*rs = st.executeQuery("Select * from Teacher");
+		//System.out.println("   Teacher Id  | \tTeacher Name");
+		while(rs.next())
+		{
+			System.out.println("\t"+rs.getInt(1)+"    |\t"+rs.getString(2));
+		}*/
+	
+		BufferedReader Br=new BufferedReader(new InputStreamReader(System.in));
+		while(1)
+		{	
+		System.out.println("\n \t\t MENU \n\t 1 : ADD RECORD \n\t 2: Display Date wise Lecture Details \n\t 3:Display Class Wise time Table\n\t 4:Modify Record of specific Teacher \n\t 5:Exit\n\n\t Enter your choice ==> ")	
+		ch =Integer.parseInt(Br.readLine());
+		switch(ch)
+		{
+			case 1:	System.out.println("\n In which table you want to insert the Record \n\t 1:Teacher\n\t 2:workLoad\n\t 3:Don't want to insert record\n\tEnter your choice ==> ";
+				n =Integer.parseInt(Br.readLine());
+				if(n==1)
+					Add_Record(1);
+				if(n==2)
+					Add_Record(2);
+				else
+					break;
+			case 2:break;
+			case 3:break;
+			case 4:break;
+			case 5:
+		}
+		}
+		
+	}
+	catch( Exception e){
+		System.out.println(e);
+	}
+
+	finally{
+		rs.close();
+		conn.close();
+		st.close();
+	}
+	}
+}
+
+	static void Add_Record(int n)
+	{
+		int t_id,s_code,
+	}

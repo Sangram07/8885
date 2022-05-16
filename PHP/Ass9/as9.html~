@@ -1,0 +1,9 @@
+<!DOCTYPE html5>
+<html>
+	<body>
+		<form action="as9.php" method="GET">
+			<h1> Student data </h1>
+			<input type="submit" name="view data" value="submit">
+		</form>
+	</body>
+</html>

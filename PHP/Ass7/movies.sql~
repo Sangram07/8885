@@ -1,0 +1,20 @@
+drop table Movie_Actor cascade;
+drop table Actor cascade;
+drop table Movie cascade;
+
+create table Movie(movie_no int primary key,movie_name varchar(20),release_year int);
+create table Actor(actor_no int primary key,actor_name varchar(20));
+create table Movie_Actor(movie_no int references Movie(movie_no) on delete cascade, actor_no int references Actor(actor_no) on delete cascade, rate int);
+/*
+insert into Movie values(1,'aaa',2000);
+insert into Movie values(2,'bbb',2001);
+insert into Movie values(3,'ccc',2002);
+
+insert into Actor values(101,'abc');
+insert into Actor values(102,'xyz');
+insert into Actor values(103,'pqr');
+
+insert into Movie_Actor values(1,101,240000);
+insert into Movie_Actor values(2,102,200000);
+insert into Movie_Actor values(3,103,250000);
+*/
